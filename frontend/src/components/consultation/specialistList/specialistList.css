@@ -1,0 +1,62 @@
+.specialistList {
+  background-color: #f7f7f7;
+  justify-content: center;
+  padding-left: auto;
+  padding-right: auto;
+  width: 80%;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.specialist-list-header {
+  margin-bottom: 20px;
+}
+
+.specialist-search-bar {
+  margin-bottom: 20px;
+}
+
+.specialist-search-input {
+  width: 70%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.horizontalSpecialistList {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  flex-wrap: wrap;
+
+}
+
+
+.specialistList-loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.specialistList-loading-spinner {
+  border: 5px solid rgba(184, 238, 157, 0.3);
+  border-top: 5px solid #0aa639; /* Change color as needed */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

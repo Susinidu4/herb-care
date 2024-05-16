@@ -1,0 +1,60 @@
+.page_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Use 100% of the viewport height */
+    margin: 0;
+}
+
+.com_containor {
+    width: 550px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+}
+
+.com_containor h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.ccom_name,
+.ccom_email,
+.ccom_description {
+    text-align: left;
+}
+
+.ccom_input2,
+.ccom_input3,
+.ccom_textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #0e7014;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.ccom_textarea {
+    resize: vertical;
+}
+
+.ccom_input {
+    padding: 10px 20px;
+    background-color: #1c912e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.ccom_input:hover {
+    background-color: #1bd656;
+    color: #000000;
+}

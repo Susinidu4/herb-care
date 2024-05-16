@@ -1,0 +1,28 @@
+.User-searching-price-container {
+  
+  display: flex;
+  flex-direction: column;
+}
+
+.User-searching-price-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.User-searching-price-option input {
+  margin-right: 10px;
+}
+
+.User-searching-price-heading {
+  margin-bottom: 10px;
+}
+
+
+.User-searching-price-option input[type="radio"]:checked + label {
+  font-weight: bold;
+  color: #022002; 
+}
+
+

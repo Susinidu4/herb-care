@@ -1,0 +1,114 @@
+/* UserDisplay.css */
+
+.FUD_history_card{
+    padding: 50px;
+    background-color: #CAD593;
+}
+
+/* Overall container styles */
+.FUD_history {
+    text-align: center;
+    color: #2A3C24;
+}
+
+/* Container styles */
+.FUD_containor {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+/* Feedback item styles */
+.FUD_containor2 {
+    /* border: 1px solid #ddd; */
+    padding: 50px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+
+
+/* Star rating styles */
+.FUD_ratings {
+    font-weight: bold;
+}
+
+.FUD_star1 {
+    color: #FFD700;
+    font-size: 30px;
+}
+.FUD_star2 {
+    color: #8a8a8a;
+    font-size: 30px;
+}
+
+/* Image styles */
+.FUD_imageName {
+    font-weight: bold;
+}
+
+.FUD_image{
+    max-width: 50px;
+}
+
+
+
+
+/* Delete button styles */
+.FUD_deleteBtn {
+    background-color: #143109; 
+    color: rgb(255, 255, 255);
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.FUD_deleteBtn:hover {
+    color: black;
+    background-color: #29db23; 
+}
+
+/* Edit button styles */
+.FUD_editBtn {
+    background-color: #143109; 
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.FUD_editBtn:hover {
+    color: black;
+    background-color: #29db23; 
+}
+
+.FUD_btn_container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.FUD_date {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px; 
+    clear: both; 
+    width: 100%; 
+    margin-left: 10px;
+}
+
+  .FUD_date span {
+    margin-right: 10px;
+    
+  }
+  
