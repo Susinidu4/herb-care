@@ -60,7 +60,8 @@ router.route("/getCompleteOrdersForUser/:userId").get(async (req, res) => {
         status: order.status,
         price: order.totalPrice,
         paymentMethod: order.payment,
-        date: order.datePlaced
+        date: order.datePlaced,
+        productId: order.products[0].product
       }
     })
     res.status(200).json(completeOrders);

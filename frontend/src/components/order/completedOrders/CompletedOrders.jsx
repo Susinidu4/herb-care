@@ -43,7 +43,7 @@ function CompletedOrders() {
                     <tbody>
                         {completedOrders.map((order, index) => (
                             <tr key={index} className={`customer-complete-order-row-${index}`}>
-                                <td>{order._id}</td>
+                                <td>{order.id}</td>
                                 <td>{order.price}</td>
                                 <td>{order.paymentMethod}</td>
                                 <td className={`customer-complete-order-status-${order.status.toLowerCase()}`}>{order.status}</td>
@@ -53,12 +53,13 @@ function CompletedOrders() {
                                 </td>
                                 <td>
                                     <div className="my-orders-order-actions-fc">
-                                        <Link to={`/Feedback&Complains/Feedback?orderId=${order._id}&productId=${order.productId}`}>
-                                            <button className='FEEDandCOM_Dash4'>Feedback</button>
-                                        </Link>
-                                        <Link to={`/Feedback&Complains/Complaints?orderId=${order._id}&productId=${order.productId}`}>
-                                            <button className='FEEDandCOM_Dash4'>Complaints</button>
-                                        </Link>
+                                    <Link to={`/Feedback&Complains/Feedback?orderId=${order.id}&productId=${order.productId}`}>
+                                        <button className='FEEDandCOM_Dash4'>Feedback</button>
+                                    </Link>
+                                    <Link to={`/Feedback&Complains/Complaints?orderId=${order.id}&productId=${order.productId}`}>
+                                        <button className='FEEDandCOM_Dash4'>Complaints</button>
+                                    </Link>
+
                                     </div>
                                 </td>
                             </tr>
