@@ -149,13 +149,21 @@ function Products({ searchQuery, priceRange, category }) {
 
         
           <div class="customer-product-list-card" key={index}>
-                <div class="customer-product-list-image">
-                  <img
-                    src={require(`../../../../../../BACKEND/uploads/${product.image}`)}
-                    className="customer-product-list-image"
-                    alt="Product"
-                  />
+                <div className="customer-product-list-image">
+                  {product.image ? (
+                    <img
+                      src={product.image.startsWith('http') ? product.image : require(`../../../../../../BACKEND/uploads/${product.image}`)}
+                      className="customer-product-list-image"
+                      alt="Product"
+                    />
+                  ) : (
+                    <div className="no-image-available">
+                      No Image Available
+                    </div>
+                  )}
                 </div>
+
+
                 <div class="customer-product-list-details">
                     <div class="customer-product-list-info2">
                       <div class="customer-product-list-name">{product.name}</div>
