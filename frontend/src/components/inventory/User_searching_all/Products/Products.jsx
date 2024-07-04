@@ -5,10 +5,13 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import config from "../../../../config";
 
+const ITEMS_PER_PAGE = 9;
+
 function Products({ searchQuery, priceRange, category }) {
   const [products, setProducts] = useState([]);
   const [summaries, setSummaries] = useState([]);
   const [loading, setLoading] = useState(true); // State to track loading status
+  const [currentPage, setCurrentPage] = useState(1);
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
@@ -106,6 +109,9 @@ function Products({ searchQuery, priceRange, category }) {
       });
   };
 
+  const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
+  const currentProducts = filteredProducts.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
+
   if (loading) {
     return (
       <div className="specialistList-loading-container">
@@ -116,9 +122,11 @@ function Products({ searchQuery, priceRange, category }) {
   }
 
   return (
+    <>
+
     <div className="User-searching-card-container">
       
-      {filteredProducts.map((product, index) => (
+    {currentProducts.map((product, index) => (
 
 
         // <Link to={`/Product/${product._id}`} key={index}>
@@ -174,14 +182,27 @@ function Products({ searchQuery, priceRange, category }) {
                   </div>
                 </div>
               </div>
+            // </Link>
+            ))}
 
 
 
-       // </Link>
+
 
         
-      ))}
     </div>
+    <div className="pagination">
+    {Array.from({ length: totalPages }, (_, index) => (
+      <button
+        key={index}
+        onClick={() => setCurrentPage(index + 1)}
+        className={currentPage === index + 1 ? 'active' : ''}
+      >
+        {index + 1}
+      </button>
+    ))}
+  </div>
+  </>
   );
 }
 
