@@ -74,6 +74,15 @@ function StaffMainSidebar() {
                                 Products 
                             </MenuItem>
                             <MenuItem 
+                                component={<Link to="/staff/staffInventoryMainDashBoard" />} 
+                                onClick={() => setSelected("Inventory")}
+                                style={{
+                                    backgroundColor: selected === "Inventory" ? "#c3cdb2" : "transparent",
+                                }}
+                            > 
+                                Inventory 
+                            </MenuItem>
+                            <MenuItem 
                                 component={<Link to="/staff/staffGift/Default_gift_packages" />} 
                                 onClick={() => setSelected("Gift Packages")}
                                 style={{
