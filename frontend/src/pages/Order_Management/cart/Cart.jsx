@@ -236,7 +236,7 @@ function Cart() {
                                                                         {item.image ? (
                                                                             <img
                                                                                 src={item.image.startsWith('http') ? item.image : require(`../../../../../BACKEND/uploads/${item.image}`)}
-                                                                                className="customer-product-list-image"
+                                                                                className="customer-cart-product-list-image"
                                                                                 alt="Product"
                                                                                 />
                                                                             ) : (
