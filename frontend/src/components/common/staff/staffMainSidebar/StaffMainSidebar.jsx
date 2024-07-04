@@ -64,7 +64,7 @@ function StaffMainSidebar() {
                             </MenuItem>
                         </SubMenu>
                         <SubMenu label="Manage" defaultOpen>
-                            <MenuItem 
+                            {/* <MenuItem 
                                 component={<Link to="/staff/Staff_Dashboard" />} 
                                 onClick={() => setSelected("Products")}
                                 style={{
@@ -72,7 +72,7 @@ function StaffMainSidebar() {
                                 }}
                             > 
                                 Products 
-                            </MenuItem>
+                            </MenuItem> */}
                             <MenuItem 
                                 component={<Link to="/staff/staffInventoryMainDashBoard" />} 
                                 onClick={() => setSelected("Inventory")}

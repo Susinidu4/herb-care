@@ -40,7 +40,17 @@ function CompletedOrders() {
                             <p><strong>Date:</strong> {new Date(order.date).toLocaleDateString()}</p>
                             {order.products.map((product, idx) => (
                                 <div key={idx} className="customer-complete-order-product">
-                                    <img src={ require(`../../../../../BACKEND/uploads/${product.image}`) } alt={product.productName} />
+                                    {product.image ? (
+                                        <img
+                                            src={product.image.startsWith('http') ? product.image : require(`../../../../../BACKEND/uploads/${product.image}`)}
+                                            className="customer-product-list-image"
+                                            alt="Product"
+                                            />
+                                        ) : (
+                                            <div className="no-image-available">
+                                            No Image Available
+                                            </div>
+                                        )}
                                     <div className="customer-complete-order-product-details">
                                         <p><strong>Name:</strong> {product.productName}</p>
                                         <p><strong>Quantity:</strong> {product.quantity}</p>
