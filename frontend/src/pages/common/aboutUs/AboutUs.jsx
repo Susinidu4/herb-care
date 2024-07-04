@@ -22,8 +22,11 @@ function AboutUs(){
                 </div>
                 <div className='aboutUs_details'>
                     <h6>About Us</h6>
+                    <br></br>
                     <h2>Lorem ipsum dolor sit amet consectetur.</h2>
-                    <p>Lorem ipsum dolor sit aimet counsectetur. Risus eriat pelilentesouque dictumst proin in duis amet quam. Nunc et amet convallis eget tortor purus. Pharetra diam ultricies scelerisque iaculis aliquam massa egestas enim bibendum.</p>
+                    <br></br>
+                    <h6>Lorem ipsum dolor sit aimet counsectetur. Risus eriat pelilentesouque dictumst proin in duis amet quam. Nunc et amet convallis eget tortor purus. Pharetra diam ultricies scelerisque iaculis aliquam massa egestas enim bibendum.Nunc et amet convallis eget tortor purus. Pharetra diam ultricies scelerisque iaculis aliquam massa egestas enim bibendum.</h6>
+                    <br></br>
                     <div className="button-aboutUs">
                         <button className="btn">Lorem ipsum</button>
                     </div>
@@ -66,29 +69,58 @@ function AboutUs(){
             </div>
 
             <div className='AboutUs_WhyChooseUs'>
-
+                <div className='aboutUs_choose_image'>
+                    <img src={require(`../../../../../frontend/src/Images/aboutUs/img2.png`)} alt="" />
+                </div>
+                <div className='aboutUs_choose_details'>
+                    <h6>Why Choose Us</h6>
+                    <br></br>
+                    <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+                    <br></br>
+                    <h6>Lorem ipsum dolor sit aimet counsectetur. Risus eriat pelilentesouque dictumst proin in duis amet quam. Nunc et amet convallis eget tortor purus. Pharetra diam ultricies scelerisque iaculis aliquam massa egestas enim bibendum.Nunc et amet convallis eget tortor purus. Pharetra diam ultricies scelerisque iaculis aliquam massa egestas enim bibendum.</h6>
+                    <br></br>
+                    <div className="button-aboutUs-choose">
+                        <button className="btn">Lorem ipsum</button>
+                    </div>
+                </div>
             </div>
-
+            
             <div className='AboutUs_Services2'>
-                {/* <div className="Service_Containor">
+                <div className="Service_Containor">
                     <div className="Service_card1">
-                        <p>100% Herbal Products</p>
+                        <img src={require(`../../../../../frontend/src/Images/aboutUs/delivery-truck.png`)} alt="" />
+                        <h5>Free shipping & Returns</h5>
+                        <br></br>
+                        <p>Lorem ipsium coinsectetur dolora bibendum Erat sit amaet. tristique  bibendum adipiscing.</p>
                     </div>
 
                     <div className="Service_card2">
-                        <p>100% Natural</p>
+                        <img src={require(`../../../../../frontend/src/Images/aboutUs/money.png`)} alt="" />
+                        <br></br>
+                        <h5>Money Back Guarantee</h5>
+                        <br></br>
+                        <p>Lorem ipsium coinsectetur dolora bibendum Erat sit amaet. tristique  bibendum adipiscing.</p>
                     </div>
 
                     <div className="Service_card3">
-                        <p>24/7</p>
+                        <img src={require(`../../../../../frontend/src/Images/aboutUs/customer-care.png`)} alt="" />
+                        <br></br>
+                        <h5>Online Support</h5>
+                        <br></br>
+                        <p>Lorem ipsium coinsectetur dolora bibendum Erat sit amaet. tristique  bibendum adipiscing.</p>
                     </div>
 
                     <div className="Service_card4">
-                        <p>24/7</p>
+                        <img src={require(`../../../../../frontend/src/Images/aboutUs/discount.png`)} alt="" />
+                        <br></br>
+                        <h5>Best Price & Offers</h5>
+                        <br></br>
+                        <p>Lorem ipsium coinsectetur dolora bibendum Erat sit amaet. tristique  bibendum adipiscing.</p>
                     </div>
-                </div> */}
+                </div>
             </div>
 
+            <br></br>
             <br></br>
             <Footer></Footer>
         </div>
