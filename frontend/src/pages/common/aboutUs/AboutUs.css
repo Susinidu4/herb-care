@@ -1,0 +1,66 @@
+.AboutUs_title_card {
+    padding: 70px;
+    background-color: #CAD593;
+    margin-bottom: 100px;
+}
+
+.AboutUs_title {
+    text-align: center;
+    color: #2A3C24;
+}
+
+.aboutUs_description{
+    display: flex;
+}
+
+.aboutUs_image {
+    padding-left: 80px;  
+}
+
+.aboutUs_image img {
+    height: 600px;  
+}
+
+.aboutUs_details{
+    padding-left: 150px;
+    margin-top: 150px;
+}
+
+.button-aboutUs .btn {
+    padding:10px;
+    font-size: 15px;
+    background: #143109;
+    color:#fff;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.AboutUs_sevices {
+    justify-content: center;
+    background-color: #EFEFEF;
+}
+
+.AboutUs_sevices h2,p{
+    text-align: center;
+}
+
+.AboutUs_sevices .AboutUs_Containor {
+    display: flex; 
+    padding-left: 250px;
+}
+
+.AboutUs_card1 {
+    width: 350px;
+    background-color: #143109;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.AboutUs_card1 p{
+    color: #CAD593;
+    font-size: medium;
+}
