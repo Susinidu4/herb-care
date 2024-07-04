@@ -11,7 +11,7 @@ function AboutUs(){
         <div>
             
             <div className="AboutUs_title_card">
-                <h3 className="AboutUs_title">About Us</h3>
+                <h1 className="AboutUs_title">About Us</h1>
                 <p className="GiftPack_display_header">Quick  -  Easy  -  The best</p>
                 <p className="GiftPack_display_header">From Us</p>
             </div>
