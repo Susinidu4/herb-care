@@ -5,10 +5,13 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import config from "../../../../config";
 
+const ITEMS_PER_PAGE = 9;
+
 function Products({ searchQuery, priceRange, category }) {
   const [products, setProducts] = useState([]);
   const [summaries, setSummaries] = useState([]);
   const [loading, setLoading] = useState(true); // State to track loading status
+  const [currentPage, setCurrentPage] = useState(1);
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
@@ -26,7 +29,7 @@ function Products({ searchQuery, priceRange, category }) {
 
     const fetchFeedbackSummaries = async () => {
       try {
-        const response = await axios.get('${config.BASE_URL}/feedback/feedback-summaries');
+        const response = await axios.get(`${config.BASE_URL}/feedback/feedback-summaries`);
         setSummaries(response.data);
         setLoading(false);
       } catch (error) {
@@ -86,6 +89,10 @@ function Products({ searchQuery, priceRange, category }) {
   };
 
   const addToCart = (product) => {
+    if (!user){
+      alert("Please login to add to cart");
+      return;
+    }
     axios
       .post(`${config.BASE_URL}/Cart/add/${product._id}` , {
         userId: user._id,
@@ -102,6 +109,9 @@ function Products({ searchQuery, priceRange, category }) {
       });
   };
 
+  const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
+  const currentProducts = filteredProducts.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
+
   if (loading) {
     return (
       <div className="specialistList-loading-container">
@@ -112,9 +122,11 @@ function Products({ searchQuery, priceRange, category }) {
   }
 
   return (
+    <>
+
     <div className="User-searching-card-container">
       
-      {filteredProducts.map((product, index) => (
+    {currentProducts.map((product, index) => (
 
 
         // <Link to={`/Product/${product._id}`} key={index}>
@@ -137,24 +149,29 @@ function Products({ searchQuery, priceRange, category }) {
 
         
           <div class="customer-product-list-card" key={index}>
-                <div class="customer-product-list-image">
-                  <img
-                    src={require(`../../../../../../BACKEND/uploads/${product.image}`)}
-                    className="customer-product-list-image"
-                    alt="Product"
-                  />
+                <div className="customer-product-list-image">
+                  {product.image ? (
+                    <img
+                      src={product.image.startsWith('http') ? product.image : require(`../../../../../../BACKEND/uploads/${product.image}`)}
+                      className="customer-product-list-image"
+                      alt="Product"
+                    />
+                  ) : (
+                    <div className="no-image-available">
+                      No Image Available
+                    </div>
+                  )}
                 </div>
+
+
                 <div class="customer-product-list-details">
-                  <div class="customer-product-list-info1">
                     <div class="customer-product-list-info2">
                       <div class="customer-product-list-name">{product.name}</div>
-                      <div class="customer-product-list-description"><span>Category: </span>{product.category}</div>
-                      <div className='FHS_ratings'>ratings: {renderStars(getProductRating(product.name))}</div>
+                      <div class="customer-product-list-price">
+                        Rs.{product.Manufactured_price}
+                      </div>
+                      <div className='FHS_ratings'>{renderStars(getProductRating(product.name))} (105)</div>
                     </div>
-                    <div class="customer-product-list-price">
-                      Rs.{product.Manufactured_price}
-                    </div>
-                  </div>
                   {/* <div class="customer-product-list-description">DESCRIPTION</div>
               <div class="customer-product-list-description">
                 {product.description}
@@ -173,14 +190,27 @@ function Products({ searchQuery, priceRange, category }) {
                   </div>
                 </div>
               </div>
+            // </Link>
+            ))}
 
 
 
-       // </Link>
+
 
         
-      ))}
     </div>
+    <div className="pagination">
+    {Array.from({ length: totalPages }, (_, index) => (
+      <button
+        key={index}
+        onClick={() => setCurrentPage(index + 1)}
+        className={currentPage === index + 1 ? 'active' : ''}
+      >
+        {index + 1}
+      </button>
+    ))}
+  </div>
+  </>
   );
 }
 

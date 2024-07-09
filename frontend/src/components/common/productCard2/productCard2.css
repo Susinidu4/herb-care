@@ -1,0 +1,154 @@
+/* Center the product card container */
+.product-card-2-container-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120vh; /* Adjust height as necessary */
+}
+
+.product-card-2-container {
+    display: flex;
+    width: 70%; /* Adjust the width as necessary */
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.product-card-2-left {
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Set the gap between product cards to 10px */
+}
+
+.product-card-2-right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    gap: 16px; /* Adjust the gap between images */
+    border-radius: 20px;
+    position: relative; /* Ensure positioned elements are relative to this container */
+}
+
+.product-card-2-right .image-container {
+    flex: 1; /* Make the image container take up equal space */
+    position: relative; /* Needed for the overlay text */
+    width: 100%; /* Ensure the image container takes up the full width */
+    height: 50%; /* Ensure the image container takes up half the height */
+}
+
+.product-card-2-right img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.home-product2-list-card {
+    width: calc(50% - 5px); /* Adjust width calculation for the 10px gap */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+
+}
+
+.image-text-overlay-1 {
+    position: absolute;
+    color: rgb(7, 76, 8);
+    font-size: 24px;
+    font-weight: bold;
+    bottom: 130px; 
+    left: 40px; 
+    width: 60%; 
+    padding: 10px; 
+    border-radius: 0 10px 0 0;
+    pointer-events: none; 
+}
+
+.image-text-overlay-2 {
+    position: absolute;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    bottom: 130px; 
+    left: 40px; 
+    width: 60%; 
+    padding: 10px; 
+    border-radius: 0 10px 0 0;
+    pointer-events: none; 
+}
+
+.home-product2-list-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+    .product-card-2-container-wrapper {
+        height: 100vh; /* Adjust height as necessary */
+    }
+
+    .product-card-2-container {
+        flex-direction: column;
+    }
+
+    .product-card-2-right {
+        width: 100%;
+        padding: 10px;
+        gap: 10px; /* Adjust the gap between images */
+    }
+    
+    .product-card-2-right .image-container {
+        width: 100%; /* Ensure the image container takes up the full width */
+    }
+
+    .image-text-overlay-1 {
+        position: absolute;
+        color: rgb(7, 76, 8);
+        font-size: 18px;
+        font-weight: bold;
+        bottom: 40px; 
+        left: 30px; 
+        width: 60%; 
+        padding: 10px; 
+        border-radius: 0 10px 0 0;
+        pointer-events: none; 
+    }
+    
+    .image-text-overlay-2 {
+        position: absolute;
+        color: white;
+        font-size: 19px;
+        font-weight: bold;
+        bottom: 40px; 
+        left: 30px; 
+        width: 60%; 
+        padding: 10px; 
+        border-radius: 0 10px 0 0;
+        pointer-events: none; 
+    }
+
+    .product-card-2-left {
+        width: 100%;
+        padding: 5px;
+        display: flex;
+        flex-wrap: unset;
+        gap: 5px; /* Set the gap between product cards to 10px */
+        overflow-x: auto;
+    }
+
+    .home-product2-list-card {
+        width: 90%; /* Adjust width calculation for the 10px gap */
+    }
+}

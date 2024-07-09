@@ -52,7 +52,10 @@ import ManageServices from "./components/HolidayPackage/ManageServices";
 
 
 import ContactUs from "./pages/common/contactUs/ContactUs";
-import AboutUs from "./pages/inventory/AboutUs/about_us";
+import AboutUs from "./pages/common/aboutUs/AboutUs";
+import CustomerSingleOrder from "./pages/Order_Management/customerSingleOrder/CutomerSingleOrder";
+import BlogsPage from "./pages/common/Blogs/BlogsPage";
+import SellerRegistrationPage from "./pages/common/sellerRegister/SellerRegistrationPage";
 
 function App() {
   return (
@@ -68,7 +71,6 @@ function App() {
         <Route path="/Producttesting/*" element={<Producttesting />} />
         <Route path="/Product/:id" element={<Product />} />
         <Route path="/Staff_Dashboard/*" element={<Staff_Dashboard/>} />
-        <Route path="/aboutUs" element={<AboutUs/>} />
 
 
 
@@ -78,7 +80,7 @@ function App() {
           element={<SellerManagerDashboard />}
         />
         <Route
-          path="/sellerStaffDashboard/*"
+          path="/sellerStaff/*"
           element={<SellerStaffDashboard />}
         />
 
@@ -106,6 +108,7 @@ function App() {
 
 
         <Route path="/myOrders/*" element={<MyOrders />} />
+        <Route path="/customerOneOrder/:id" element={<CustomerSingleOrder />} />
           
 
         <Route path="/Update_default_gift_packages/:id" element={<UpdateDefaultGiftPackage/>}></Route>
@@ -122,9 +125,13 @@ function App() {
 
 
         <Route path="/contactUs" element={<ContactUs/>}></Route>
-
+        <Route path="/aboutUs" element={<AboutUs/>}></Route>
 
         <Route path="/cart" element={<Cart/>}></Route>
+
+        <Route path="/blogsHome/*" element={<BlogsPage/>}></Route>
+
+        <Route path="/partnershipRequestForm" element={<SellerRegistrationPage/>}></Route>
 
         <Route path="/manageServices" element={<ManageServices/>}></Route>
 
