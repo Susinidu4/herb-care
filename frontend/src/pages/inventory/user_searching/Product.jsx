@@ -48,6 +48,10 @@ function Product() {
   // console.log(product.name);
 
   const addToCart = () => {
+    if (!user){
+      alert("Please login to add to cart");
+      return;
+    }
     axios
       .post(`${config.BASE_URL}/Cart/add/${id}`, {
         userId: user._id,
@@ -135,11 +139,17 @@ function Product() {
         <div>
       <div class="seller-single-product-page">
         <div className="seller-single-product-image">
-          <img
-            src={require(`../../../../../BACKEND/uploads/${product.image}`)}
-            alt="{product.name}"
-            className="seller-single-product-image"
-          />
+                  {product.image ? (
+                    <img
+                      src={product.image.startsWith('http') ? product.image : require(`../../../../../BACKEND/uploads/${product.image}`)}
+                      className="customer-product-list-image"
+                      alt="Product"
+                    />
+                  ) : (
+                    <div className="no-image-available">
+                      No Image Available
+                    </div>
+                  )}
         </div>
         <div className="seller-single-product-details">
           <div className="seller-single-product-name">{product.name}</div>
