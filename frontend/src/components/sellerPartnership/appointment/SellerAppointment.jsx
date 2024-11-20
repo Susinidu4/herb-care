@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import "./sellerAppointment.css";
 import { AuthContext } from "../../../context/AuthContext";
 import axios from "axios";
+import config from "../../../config";
 
 function SellerAppointment() {
   const { user } = useContext(AuthContext);
@@ -17,7 +18,7 @@ function SellerAppointment() {
     };
 
     axios
-      .post("http://localhost:8070/sellerAppointments/creatAppoinment", newAppointment)
+      .post(`${config.BASE_URL}/sellerAppointments/creatAppoinment/${user.sellerId}`, newAppointment)
       .then((res) => {
         alert("Your Appointment has been placed successfully!");
         console.log(res.data);

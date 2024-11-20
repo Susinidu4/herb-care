@@ -4,12 +4,13 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import './registeredSellers.css'; // Import the CSS file for styling
 import { Link } from 'react-router-dom';
+import config from "../../../../config";
 
 function RegisteredSellers() {
     const [sellers, setSellers] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:8070/seller/all')
+        axios.get(`${config.BASE_URL}/seller/all`)
             .then((res) => {
                 setSellers(res.data);
             })
@@ -19,11 +20,11 @@ function RegisteredSellers() {
     }, []);
 
     const handleDownloadPDF = () => {
-        window.open('http://localhost:8070/seller/all?format=pdf');
+        window.open(`${config.BASE_URL}/seller/all?format=pdf`);
     };
 
     const handleReject = (id) => {
-        axios.delete(`http://localhost:8070/seller/deleteSeller/${id}`)
+        axios.delete(`${config.BASE_URL}/seller/deleteSeller/${id}`)
             .then((res) => {
                 setSellers(prevSellers => prevSellers.filter(seller => seller.sellerId !== id));
             })

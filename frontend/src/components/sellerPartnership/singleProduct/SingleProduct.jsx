@@ -1,7 +1,9 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./singleProduct.css";
 import { useParams } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthContext";
+import config from "../../../config";
 
 function SingleProduct() {
   const { Id } = useParams();
@@ -11,10 +13,11 @@ function SingleProduct() {
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("description");
   const [error, setError] = useState("");
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8070/sellerProducts/products/` + Id)
+      .get(`${config.BASE_URL}/sellerProducts/products/${user.sellerId}/${Id}`)
       .then((res) => {
         console.log(res.data);
         setProduct(res.data);
@@ -29,7 +32,7 @@ function SingleProduct() {
 
   const addToBag = () => {
     axios
-      .post("http://localhost:8070/sellerBag/addToBag/" + Id, {
+      .post(`${config.BASE_URL}/sellerBag/addToBag/${Id}/${user.sellerId}`, {
         quantity: quantity,
         price: product.calculatedPrice,
         totalPrice: (quantity * product.calculatedPrice).toFixed(2),

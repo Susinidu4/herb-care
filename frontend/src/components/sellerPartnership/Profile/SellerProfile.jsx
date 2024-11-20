@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from "../../../context/AuthContext";
 import './sellerProfile.css';
 import axios from 'axios';
+import config from "../../../config";
 
 function SellerProfile() {
   const { user } = useContext(AuthContext);
@@ -11,7 +12,7 @@ function SellerProfile() {
 
   useEffect(() => {
 
-    axios.get('http://localhost:8070/sellerProfile/profile')
+    axios.get(`${config.BASE_URL}/sellerProfile/profile/${user.sellerId}`)
     .then((res)=> {
       const data = { ...res.data };
       delete data.client; // Remove the circular reference property
@@ -24,7 +25,7 @@ function SellerProfile() {
   }, []);
 
   const update= () =>{
-    axios.get('http://localhost:8070/sellerProfile/profile')
+    axios.get(`${config.BASE_URL}/sellerProfile/profile`)
     .then((res)=> {
       const data = { ...res.data };
       delete data.client; // Remove the circular reference property
@@ -67,7 +68,7 @@ function SellerProfile() {
     formData.append('website', editedUser.website);
     formData.append('newPassword', newPassword);
 
-    axios.post('http://localhost:8070/sellerProfile/update', formData, {
+    axios.post(`${config.BASE_URL}/sellerProfile/update`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
@@ -95,7 +96,7 @@ function SellerProfile() {
             <div className="col-md-3 pt-0">
               <div className="seller-profile-card-body">
                 <div className="seller-profile-avatar-container">
-                <img src={require(`../../../../../BACKEND/routes/sellerPartnership/uploads/images/${user.profile_Image}`)} alt="Profile" className="seller-profile-avatar" />
+                <img src="https://th.bing.com/th/id/OIP._FJFJqCgfY1GSl100ui2SQAAAA?rs=1&pid=ImgDetMain" alt="Profile" className="seller-profile-avatar" />
                 </div>
                 <div className="seller-profile-info">
                   <label className="seller-profile-btn">

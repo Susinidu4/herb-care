@@ -1,8 +1,10 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./productList.css";
 import { Link } from "react-router-dom";
 import SearchBar from "../searchBar/SearchBar";
+import { AuthContext } from "../../../context/AuthContext";
+import config from "../../../config";
 
 function ProductList() {
   const [loading, setLoading] = useState(true);
@@ -10,22 +12,22 @@ function ProductList() {
   const [filteredProductList, setFilteredProductList] = useState([]);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8070/sellerProducts/products")
-      .then((res) => {
-        console.log(res.data);
-        setProductList(res.data.products);
-        setFilteredProductList(res.data.products);
-        setCategories(res.data.categories);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log("Error getting pending seller sellers", err);
-        setLoading(false);
-      });
-  }, []);
+      axios.get(`${config.BASE_URL}/sellerProducts/products/${user.sellerId}`)
+        .then((res) => {
+          console.log(res.data);
+          setProductList(res.data.products);
+          setFilteredProductList(res.data.products);
+          setCategories(res.data.categories);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log("Error getting seller products", err);
+          setLoading(false);
+        });
+  }, [user]);
 
   const handleSearch = (query) => {
     const filteredProducts = productList.filter((product) =>
